@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Tatlı Cadı Helin & Rüya Yorumcusu Fatih</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <button class="icon-btn" id="backBtn" aria-label="Geri" hidden>←</button>
+      <div class="topbar__titles">
+        <div class="topbar__title" id="topTitle">Tatlı Cadı Helin & Rüya Yorumcusu Fatih</div>
+        <div class="topbar__subtitle" id="topSubtitle">Astroloji & Rüya</div>
+      </div>
+    </header>
+
+    <main class="screens">
+      <!-- Home -->
+      <section class="screen screen--active" id="screen-home">
+        <div class="hero">
+          <div class="hero__badge">✨ Kişisel rehberlerin</div>
+          <h1 class="hero__title">Kimi seçiyorsun?</h1>
+          <p class="hero__desc">
+            Doğum haritası ve aylık yorum için <b>Tatlı Cadı Helin</b>, rüya yorumu için <b>Rüya Yorumcusu Fatih</b>.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <button class="char-card" id="goHelin">
+            <div class="char-card__left">
+              <div class="char-card__icon">🧙‍♀️</div>
+              <div>
+                <div class="char-card__name">Tatlı Cadı Helin</div>
+                <div class="char-card__role">Astroloji Rehberi</div>
+              </div>
+            </div>
+            <img class="char-card__img" src="/assets/helin.png" alt="Tatlı Cadı Helin" onerror="this.style.display='none'">
+          </button>
+
+          <button class="char-card char-card--fatih" id="goFatih">
+            <div class="char-card__left">
+              <div class="char-card__icon">🌙</div>
+              <div>
+                <div class="char-card__name">Rüya Yorumcusu Fatih</div>
+                <div class="char-card__role">Sembol Analizi & Yorum</div>
+              </div>
+            </div>
+            <img class="char-card__img" src="/assets/fatih.png" alt="Rüya Yorumcusu Fatih" onerror="this.style.display='none'">
+          </button>
+        </div>
+
+        <div class="footer-note">
+          <span class="dot"></span> Rehberini seç ve sohbet etmeye başla.
+        </div>
+      </section>
+
+      <!-- Helin -->
+      <section class="screen" id="screen-helin">
+        <div class="panel">
+          <div class="panel__head">
+            <div class="avatar avatar--helin">🧙‍♀️</div>
+            <div>
+              <div class="panel__title">Tatlı Cadı Helin</div>
+              <div class="panel__subtitle">Doğum Haritası & Aylık Yorum</div>
+            </div>
+            <img class="panel__img" src="/assets/helin.png" alt="Helin" onerror="this.style.display='none'">
+          </div>
+
+          <div class="chat">
+            <div class="msg msg--bot">
+              <div class="msg__bubble">
+                Merhaba, ben <b>Tatlı Cadı Helin</b>. Doğum bilgilerini yaz, sana bu aya dair detaylı yorumunu çıkarayım ✨
+              </div>
+              <div class="msg__sig">— Tatlı Cadı Helin</div>
+            </div>
+          </div>
+
+          <form id="helinForm" class="form">
+            <label class="label">Doğum Tarihi</label>
+            <input class="input" type="date" name="birthDate" required />
+
+            <div class="row row--between">
+              <label class="label">Doğum Saati</label>
+              <label class="checkbox">
+                <input type="checkbox" id="unknownTime" />
+                <span>Bilmiyorum</span>
+              </label>
+            </div>
+            <input class="input" type="time" name="birthTime" id="birthTime" />
+
+            <label class="label">Doğum Yeri</label>
+            <input class="input" type="text" name="birthPlace" placeholder="Örn: İstanbul, Türkiye" required />
+
+            <button class="btn btn--primary" type="submit" id="helinBtn">Yorumumu Al</button>
+            <div class="mini" id="helinStatus" hidden>⏳ Helin yıldızlara bakıyor…</div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Helin result -->
+      <section class="screen" id="screen-helin-result">
+        <div class="panel">
+          <div class="panel__head">
+            <div class="avatar avatar--helin">🧙‍♀️</div>
+            <div>
+              <div class="panel__title">Tatlı Cadı Helin</div>
+              <div class="panel__subtitle">Sonuç</div>
+            </div>
+            <img class="panel__img" src="/assets/helin.png" alt="Helin" onerror="this.style.display='none'">
+          </div>
+
+          <div class="badges">
+            <span class="badge" id="sunBadge">☀️ Güneş: —</span>
+            <span class="badge" id="moonBadge">🌙 Ay: —</span>
+            <span class="badge" id="riseBadge">⬆️ Yükselen: —</span>
+          </div>
+
+          <div class="cards">
+            <div class="info-card">
+              <div class="info-card__title">Aylık Yorum</div>
+              <div class="info-card__text" id="monthlyText">—</div>
+              <div class="info-card__sig">— Tatlı Cadı Helin</div>
+            </div>
+
+            <div class="info-card info-card--mini">
+              <div class="info-card__title">Başlıklar</div>
+              <div class="kv"><span>❤️ Aşk</span><b id="loveTxt">—</b></div>
+              <div class="kv"><span>💰 Para</span><b id="moneyTxt">—</b></div>
+              <div class="kv"><span>🧠 Ruh Hali</span><b id="moodTxt">—</b></div>
+
+              <hr class="hr">
+
+              <div class="info-card__title">Detay</div>
+              <div class="kv"><span>💼 Kariyer</span><b id="careerTxt">—</b></div>
+              <div class="kv"><span>🩺 Sağlık</span><b id="healthTxt">—</b></div>
+              <div class="kv"><span>🫂 Sosyal</span><b id="socialTxt">—</b></div>
+
+              <hr class="hr">
+
+              <div class="info-card__title">Ritüeller</div>
+              <div class="list" id="ritualsList">—</div>
+
+              <div class="info-card__title" style="margin-top:10px;">Uyarılar</div>
+              <div class="list" id="warningsList">—</div>
+
+              <div class="info-card__title" style="margin-top:10px;">Şanslı Günler</div>
+              <div class="list" id="luckyList">—</div>
+
+              <hr class="hr">
+
+              <div class="info-card__title">Bilgiler</div>
+              <div class="kv"><span>Tarih</span><b id="outDate">—</b></div>
+              <div class="kv"><span>Saat</span><b id="outTime">—</b></div>
+              <div class="kv"><span>Yer</span><b id="outPlace">—</b></div>
+            </div>
+          </div>
+
+          <button class="btn btn--ghost" id="toFatihFromHelin">Bir rüyam var… (Fatih)</button>
+        </div>
+      </section>
+
+      <!-- Fatih -->
+      <section class="screen" id="screen-fatih">
+        <div class="panel panel--fatih">
+          <div class="panel__head">
+            <div class="avatar avatar--fatih">🌙</div>
+            <div>
+              <div class="panel__title">Rüya Yorumcusu Fatih</div>
+              <div class="panel__subtitle">Rüya Analizi</div>
+            </div>
+            <img class="panel__img" src="/assets/fatih.png" alt="Fatih" onerror="this.style.display='none'">
+          </div>
+
+          <div class="chat">
+            <div class="msg msg--bot">
+              <div class="msg__bubble">
+                Ben <b>Rüya Yorumcusu Fatih</b>. Rüyanı anlat. Sembolleri derinlemesine çözelim…
+              </div>
+              <div class="msg__sig">— Rüya Yorumcusu Fatih</div>
+            </div>
+          </div>
+
+          <div class="form">
+            <label class="label">Rüyan</label>
+            <textarea class="textarea" id="dreamInput" placeholder="Rüyanı buraya yaz…"></textarea>
+            <button class="btn btn--primary btn--fatih" id="dreamBtn">Rüyamı Yorumla</button>
+            <div class="mini" id="fatihStatus" hidden>⏳ Fatih yorumluyor…</div>
+          </div>
+
+          <div class="answer" id="dreamAnswer" hidden>
+            <div class="answer__title">Tema</div>
+            <div class="answer__text" id="themeText"></div>
+
+            <div class="answer__title" style="margin-top:10px;">Yorum</div>
+            <div class="answer__text" id="dreamText"></div>
+
+            <div class="answer__title" style="margin-top:10px;">Semboller</div>
+            <div class="symbol-cards" id="symbolCards"></div>
+
+            <div class="answer__title" style="margin-top:10px;">Tavsiyeler</div>
+            <div class="list" id="adviceList"></div>
+
+            <div class="answer__title" style="margin-top:10px;" id="astroTitle" hidden>Astro Bağlantısı</div>
+            <div class="answer__text" id="astroLink" hidden></div>
+
+            <div class="answer__sig">— Rüya Yorumcusu Fatih</div>
+            <button class="btn btn--ghost" id="toHelinFromFatih">Doğum haritamı da öğrenmek istiyorum (Helin)</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Error -->
+      <section class="screen" id="screen-error">
+        <div class="panel">
+          <div class="panel__head">
+            <div class="avatar">⚠️</div>
+            <div>
+              <div class="panel__title">Bir sorun oldu</div>
+              <div class="panel__subtitle">Bağlantı / Sunucu</div>
+            </div>
+          </div>
+          <div class="notice" id="errorText">—</div>
+          <div style="height:12px"></div>
+          <button class="btn btn--ghost" id="goHomeFromError">Ana ekrana dön</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
