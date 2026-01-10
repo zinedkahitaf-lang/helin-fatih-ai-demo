@@ -1,0 +1,10 @@
+{
+  "name": "Tatlı Cadı Helin & Rüya Yorumcusu Fatih",
+  "short_name": "Helin & Fatih",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0b1a",
+  "theme_color": "#6b4eff",
+  "orientation": "portrait",
+  "icons": []
+}
