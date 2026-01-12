@@ -222,3 +222,11 @@
 
   initFromHash();
 })();
+// ✨ Karakterleri canlı gibi göster (güvenli animasyon)
+window.addEventListener("load", () => {
+  const cards = document.querySelectorAll("img, .card, .symbol, .character");
+
+  cards.forEach((el) => {
+    el.classList.add("character-alive");
+  });
+});

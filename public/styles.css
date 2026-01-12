@@ -252,3 +252,15 @@ body{
   background: rgba(0,0,0,0.22);
   line-height:1.5;
 }
+/* SAFE animation - sadece verilen elemanı etkiler */
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.character-alive {
+  animation: breathe 6s ease-in-out infinite;
+  will-change: transform;
+}
+
